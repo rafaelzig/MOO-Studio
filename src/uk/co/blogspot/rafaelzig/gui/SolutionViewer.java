@@ -60,7 +60,7 @@ class SolutionViewer extends JFrame implements ActionListener
 	/**
 	 * Several constants utilised throughout this application.
 	 */
-	private final String			EXPORT_SOLUTIONS			= "Export solutions";
+	private final String			EXPORT_SOLUTIONS			= "Export Solutions";
 	private final String			CLOSE						= "Close Window";
 	private final String			SAVE_SOLUTIONS				= "Save Solution Set";
 	private final String			TRADEOFF_CURVE				= "Trade-off Curve";

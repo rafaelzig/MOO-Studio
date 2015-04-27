@@ -30,6 +30,9 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -91,6 +94,7 @@ public class ProblemSolver extends JFrame implements ActionListener
 	/**
 	 * Several constants utilised throughout this application.
 	 */
+	private final String						ABOUT				= "About the Application";
 	private final String						REVIEW_SAVED		= "Review Saved Solution Sets";
 	private final String						STOP				= "Stop Evaluation";
 	private final String						ANALYSE				= "Analyse Algorithms";
@@ -148,6 +152,10 @@ public class ProblemSolver extends JFrame implements ActionListener
 	{
 		switch (e.getActionCommand())
 		{
+			case ABOUT:
+				new AboutWindow(this);
+				break;
+
 			case NEW_PROBLEM:
 				if (problemDesigner == null)
 				{
@@ -904,6 +912,14 @@ public class ProblemSolver extends JFrame implements ActionListener
 		add(getCenterPanel(), BorderLayout.CENTER);
 		add(getLineEndPanel(), BorderLayout.LINE_END);
 		add(getPageEndPanel(), BorderLayout.PAGE_END);
+
+		JMenuBar menuBar = new JMenuBar();
+		JMenu menu = new JMenu("About");
+		JMenuItem aboutItem = new JMenuItem(ABOUT);
+		aboutItem.addActionListener(this);
+		menu.add(aboutItem);
+		menuBar.add(menu);
+		setJMenuBar(menuBar);
 
 		loadProblems();
 
